@@ -2,6 +2,8 @@
 
 Gustavo Trainotti Crispim · undergraduate thesis in progress.
 
+[View the interactive research website](https://gustavotrainotticrispim02.github.io/thesis-grid-ai/) · [Download the saved results](https://gustavotrainotticrispim02.github.io/thesis-grid-ai/assets/representative-results.zip)
+
 This project quantifies how network-model fidelity changes the modeled operating-cost value of a flexible data center and a transmission rating increase on RTS-GMLC.
 
 ## Contents
