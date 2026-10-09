@@ -1,0 +1,8 @@
+# Notebook/model dependencies. IPOPT is an external executable, not a pip package.
+# This is a setup list, not a lockfile of the original experiment environment.
+numpy
+pandas
+pyomo
+highspy
+matplotlib
+scipy

@@ -1,0 +1,35 @@
+# Credentials and workstation state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets*.json
+.DS_Store
+._*
+.vscode/
+.idea/
+.openai/
+# Environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+node_modules/
+# Local datasets and solver output (public result snapshots are in docs/assets)
+data/RTS_Data/
+data/RTS-GMLC/
+data/raw/
+*.log
+*.sol
+*.nl
+*.lp
+*.mps
+solver_logs/
+scratch/
+tmp/
+publication-review.json

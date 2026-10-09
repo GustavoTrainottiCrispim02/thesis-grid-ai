@@ -1,0 +1,48 @@
+name: Publish research website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'scripts/prepare_pages.py'
+      - 'scripts/check_publication.py'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Review publication payload
+        run: python3 scripts/check_publication.py
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Link the actual thesis repository
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 scripts/prepare_pages.py
+      - name: Upload website only
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
